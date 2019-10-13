@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>註冊</title>
+	<link rel="stylesheet" type="text/css" href="../resources/styles/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="../resources/styles/element-ui.css">
+	<link rel="stylesheet" type="text/css" href="../resources/styles/signup.css">
+	<script type="text/javascript" src="../resources/javascripts/jquery-3.2.1.min.js"></script>
+	<script type="text/javascript" src="../resources/javascripts/bootstrap.min.js"></script>
+	<script type="text/javascript" src="../resources/javascripts/vue.js"></script>
+	<script type="text/javascript" src="../resources/javascripts/element-ui.js"></script>
+	<script type="text/javascript" src="../resources/javascripts/polyfill.min.js"></script>
+</head>
+
+<body>
+  <div class="container">
+    <form id="form" class="form-signin form-horizontal">
+      <h2 class="form-signin-heading">請註冊</h2>
+      <div class="form-group">
+        <label for="id" class="col-sm-3 control-label">帳號</label>
+        <div class="col-sm-9">
+          <input type="text" class="form-control" id="id" name="id" placeholder="請輸入6碼工號">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="password" class="col-sm-3 control-label">密碼</label>
+        <div class="col-sm-9">
+          <input type="password" class="form-control" id="password" name="password" placeholder="請至少輸入7碼，不得有空白">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="passwordConfirm" class="col-sm-3 control-label">確認密碼</label>
+        <div class="col-sm-9">
+          <input type="password" class="form-control" id="passwordConfirm" name="passwordConfirm" placeholder="請再輸入一次密碼">
+        </div>
+      </div>
+			<div class="form-group">
+        <label for="name" class="col-sm-3 control-label">名稱</label>
+        <div class="col-sm-9">
+          <input type="text" class="form-control" id="name" name="name" placeholder="請輸入名稱">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="birthday" class="col-sm-3 control-label">生日</label>
+        <div class="col-sm-9">
+          <input type="date" class="form-control" id="birthday" name="birthday" placeholder="">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="hobbies" class="col-sm-3 control-label">興趣(1~3項)</label>
+        <div class="col-sm-9">
+          <label class="checkbox-inline">
+            <input type="checkbox" name="hobbies[]" value="0"> 唱歌
+          </label>
+          <label class="checkbox-inline">
+            <input type="checkbox" name="hobbies[]" value="1"> 追劇
+          </label>
+          <label class="checkbox-inline">
+            <input type="checkbox" name="hobbies[]" value="2"> 看書
+          </label>
+          <label class="checkbox-inline">
+            <input type="checkbox" name="hobbies[]" value="3"> 睡覺
+          </label>
+          <label class="checkbox-inline">
+            <input type="checkbox" name="hobbies[]" value="4"> 寫程式
+          </label>
+          <label class="checkbox-inline">
+            <input type="checkbox" name="hobbies[]" value="5"> 旅行
+          </label>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-sm-3">
+          <button type="button" class="btn btn-default" name="back" onclick="window.location.href='index.html';">回首頁</button>
+        </div>
+        <div class="col-sm-offset-6 col-sm-3" style="text-align: right;">
+          <button type="button" class="btn btn-primary" name="submit">送出</button>
+        </div>
+      </div>
+    </form>
+  </div>
+	<div class="block">
+		<div class="loader"></div>
+	</div>
+	<script type="text/javascript" src="../resources/javascripts/signup.js"></script>
+</body>
+
+</html>

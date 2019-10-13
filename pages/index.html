@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>首頁</title>
+	<link rel="stylesheet" type="text/css" href="../resources/styles/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="../resources/styles/element-ui.css">
+	<link rel="stylesheet" type="text/css" href="../resources/styles/index.css">
+	<script type="text/javascript" src="../resources/javascripts/jquery-3.2.1.min.js"></script>
+	<script type="text/javascript" src="../resources/javascripts/bootstrap.min.js"></script>
+	<script type="text/javascript" src="../resources/javascripts/vue.js"></script>
+	<script type="text/javascript" src="../resources/javascripts/element-ui.js"></script>
+	<script type="text/javascript" src="../resources/javascripts/polyfill.min.js"></script>
+</head>
+
+<body>
+  <div class="container">
+    <form class="form-signin">
+      <h2 class="form-signin-heading">請登入</h2>
+      <label for="inputID" class="sr-only">帳號</label>
+      <input type="text" id="inputID" class="form-control" placeholder="帳號" required autofocus>
+      <label for="inputPassword" class="sr-only">密碼</label>
+      <input type="password" id="inputPassword" class="form-control" placeholder="密碼" required>
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" id="remember-me" name="remember-me"> 記得我
+        </label>
+      </div>
+      <button id="login" class="btn btn-lg btn-primary btn-block" type="button">登入</button>
+			<div class="signup">
+				<a href="signup.html">還未註冊？</a>
+			</div>
+    </form>
+  </div>
+	<div class="block">
+		<div class="loader"></div>
+	</div>
+	<script type="text/javascript" src="../resources/javascripts/index.js"></script>
+
+</body>
+
+</html>
