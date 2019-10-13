@@ -27,7 +27,14 @@
 		<hr/>
 		<div class="row">
 			<div id="mainData" class="col-md-12">
-				
+				<template>
+					<el-table v-if="tableVisible" :data="tableData" stripe style="width: 100%">
+						<el-table-column prop="id" label="帳號"></el-table-column>
+						<el-table-column prop="name" label="名稱"></el-table-column>
+						<el-table-column prop="birthday" label="生日"></el-table-column>
+						<el-table-column prop="hobbies" label="興趣" :formatter="getHobbies"></el-table-column>
+					</el-table>
+				</template>
 			</div>
 		</div>
   </div>

@@ -1,3 +1,23 @@
+// Vue
+var app = new Vue({
+  el : "#mainData",
+  data : {
+    tableVisible : false,
+    tableData : []
+  },
+  methods : {
+    getHobbies : function(row, column, codeList, index){ // 從興趣代號列表對應到中文並串起來
+      var result = codeList.filter(function(code){
+        return hobbiesMap[code] !== undefined;
+      }).map(function(code, index){
+        return hobbiesMap[code];
+      }).reduce(function(result, text){
+        return result + ', ' + text;
+      });
+      return result;
+    }
+  }
+});
 var hobbiesMap = { // 興趣代碼與中文對應
   "0" : "唱歌",
   "1" : "追劇",
@@ -39,7 +59,8 @@ $.ajax({
       alert(data.message);
       return;
     }
-    mainData.innerHTML = getTableHTML(data.result);
+    app.tableData = data.result;
+    app.tableVisible = true;
     document.querySelector('.block').style.visibility = 'hidden';
   })
   .fail(function() {
@@ -48,21 +69,6 @@ $.ajax({
   .always(function() {
 
   });
-
-// 將會員資料組成HTML
-function getTableHTML(dataList){
-  var header = '<tr><th>帳號</th><th>名稱</th><th>生日</th><th>興趣</th></tr>';
-  var list = '';
-  if(dataList.length === 0){
-    list = '<td colspan="4">查無資料</th>';
-  } else{
-    dataList.forEach(function(element){
-      list += ('<tr><td>' + element.id + '</td>' + '<td>' + element.name + '</td>'
-              + '<td>' + element.birthday + '</td>' + '<td>' + getHobbies(element.hobbies) + '</td></tr>');
-    });
-  }
-  return '<table class="table table-striped"><thead>' + header + '</thead><tbody>' + list + '</tbody></table>';
-}
 
 // 從興趣代號列表對應到中文並串起來
 function getHobbies(codeList){
