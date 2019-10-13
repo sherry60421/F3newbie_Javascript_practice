@@ -13,6 +13,17 @@ loginButton.addEventListener("click", function(){
   login(id, password, isRemember);
 });
 
+// 進到畫面時若存在已記住的會員資料，檢查是否過期
+// 因為IE開本機HTML時無法使用localStorage，若localStorage不存在，暫時把這邊的功能拿掉
+if(localStorage && localStorage.getItem('memberData')){
+  var memberData = JSON.parse(localStorage.getItem('memberData'));
+  if(new Date().getTime() - memberData.time >= 50000){ // 50秒後需重新登入
+    localStorage.removeItem('memberData');
+  } else{ // 未過期，可直接登入，但要將[記得我]改成false避免無限延期
+    login(memberData.id, memberData.password, false);
+  }
+}
+
 // 登入
 function login(id, password, isRemember){
   // 呼叫遠端檢查會員資料
@@ -31,6 +42,10 @@ function login(id, password, isRemember){
         return;
       }
       if(data.isMember){ // 是會員且密碼正確
+        if(isRemember && localStorage){ // 若選擇[記得我]，將id/password與現在時間寫入localStorage
+          var memberData = {id : id, password : password, time : new Date().getTime()};
+          localStorage.setItem('memberData', JSON.stringify(memberData));
+        }
         if(localStorage){
           // 下一個頁面的name可以帶出登入者名稱
           localStorage.setItem('name', data.name);
