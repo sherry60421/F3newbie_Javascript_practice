@@ -1,4 +1,19 @@
-// 驗證註冊表單
+//取得[送出]按鈕
+var submitButton = document.getElementsByName('submit')[0];
+//添加click事件的handler
+submitButton.addEventListener("click", function(){
+  var form = document.getElementById('form');
+  var data;
+  try{
+     data = validateData(form);
+  } catch(e){
+    alert(e);
+    return;
+  }
+  window.location.href = 'index.html';
+});
+
+//驗證註冊表單
 function validateData(form){
   var id = form.elements.namedItem('id').value;
   if(id.length !== 6 || id.indexOf(' ') > -1){
