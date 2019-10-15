@@ -7,14 +7,22 @@ var app = new Vue({
   },
   methods : {
     getHobbies : function(row, column, codeList, index){ // 從興趣代號列表對應到中文並串起來
-      var result = codeList.filter(function(code){
-        return hobbiesMap[code] !== undefined;
-      }).map(function(code, index){
-        return hobbiesMap[code];
-      }).reduce(function(result, text){
-        return result + ', ' + text;
-      });
-      return result;
+	  if(!codeList || codeList.length === 0){
+		  return '';
+	  } else{
+		  var result = codeList.filter(function(code){
+			return hobbiesMap[code] !== undefined;
+		  }).map(function(code, index){
+			return hobbiesMap[code];
+		  }).reduce(function(result, text){
+			if(!result){
+				return result + text;
+			} else{
+				return result + ', ' + text;
+			}
+		  }, '');
+		  return result;
+	  }
     }
   }
 });
@@ -77,7 +85,11 @@ function getHobbies(codeList){
   }).map(function(code, index){
     return hobbiesMap[code];
   }).reduce(function(result, text){
-    return result + ', ' + text;
-  });
+	if(!result){
+		return result + text;
+	} else{
+		return result + ', ' + text;
+	}
+  }, '');
   return result;
 }
